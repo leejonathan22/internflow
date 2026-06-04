@@ -16,12 +16,19 @@ function parseForm(formData: FormData) {
   }
 }
 
+async function getUserId(supabase: Awaited<ReturnType<typeof createClient>>) {
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) throw new Error('Not authenticated')
+  return user.id
+}
+
 export async function createApplication(formData: FormData) {
   const supabase = await createClient()
+  const user_id = await getUserId(supabase)
 
   const { data, error } = await supabase
     .from('applications')
-    .insert(parseForm(formData))
+    .insert({ ...parseForm(formData), user_id })
     .select('id')
     .single()
 
