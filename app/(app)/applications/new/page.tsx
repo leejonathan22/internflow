@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { createApplication } from '@/lib/actions/applications'
 import { APP_STATUSES, STATUS_LABELS } from '@/lib/utils'
+import { SubmitButton } from '@/components/ui/submit-button'
 
 export default function NewApplicationPage() {
   return (
@@ -71,12 +72,7 @@ export default function NewApplicationPage() {
           </div>
 
           <div className="flex gap-3 pt-1">
-            <button
-              type="submit"
-              className="bg-indigo-600 text-white text-sm font-medium px-5 py-2 rounded-md hover:bg-indigo-700 transition-colors"
-            >
-              Create Application
-            </button>
+            <SubmitButton label="Create Application" loadingLabel="Saving..." />
             <Link
               href="/applications"
               className="border border-gray-300 text-gray-600 text-sm font-medium px-5 py-2 rounded-md hover:bg-gray-50 transition-colors"
