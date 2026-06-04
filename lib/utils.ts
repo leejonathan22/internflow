@@ -70,11 +70,8 @@ export const RELATIONSHIP_STRENGTHS: RelationshipStrength[] = ['cold', 'warm', '
 
 export function formatDate(date: string | null | undefined): string {
   if (!date) return '—'
-  return new Date(date + 'T00:00:00').toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  })
+  const d = new Date(date.includes('T') ? date : date + 'T00:00:00')
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 }
 
 export function isOverdue(dateStr: string): boolean {
