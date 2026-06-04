@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { updateApplication } from '@/lib/actions/applications'
 import { APP_STATUSES, STATUS_LABELS } from '@/lib/utils'
+import { SubmitButton } from '@/components/ui/submit-button'
 import type { Application } from '@/lib/types'
 
 export default async function EditApplicationPage({
@@ -114,12 +115,7 @@ export default async function EditApplicationPage({
           </div>
 
           <div className="flex gap-3 pt-1">
-            <button
-              type="submit"
-              className="bg-indigo-600 text-white text-sm font-medium px-5 py-2 rounded-md hover:bg-indigo-700 transition-colors"
-            >
-              Save Changes
-            </button>
+            <SubmitButton label="Save Changes" loadingLabel="Saving..." />
             <Link
               href={`/applications/${id}`}
               className="border border-gray-300 text-gray-600 text-sm font-medium px-5 py-2 rounded-md hover:bg-gray-50 transition-colors"

@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import { createContact } from '@/lib/actions/contacts'
 import { RELATIONSHIP_STRENGTHS, RELATIONSHIP_LABELS } from '@/lib/utils'
+import { SubmitButton } from '@/components/ui/submit-button'
 import type { Application } from '@/lib/types'
 
 export default async function NewContactPage() {
@@ -144,12 +145,7 @@ export default async function NewContactPage() {
           </div>
 
           <div className="flex gap-3 pt-1">
-            <button
-              type="submit"
-              className="bg-indigo-600 text-white text-sm font-medium px-5 py-2 rounded-md hover:bg-indigo-700 transition-colors"
-            >
-              Create Contact
-            </button>
+            <SubmitButton label="Create Contact" loadingLabel="Saving..." />
             <Link
               href="/contacts"
               className="border border-gray-300 text-gray-600 text-sm font-medium px-5 py-2 rounded-md hover:bg-gray-50 transition-colors"
