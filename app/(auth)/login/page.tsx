@@ -60,8 +60,11 @@ export default async function LoginPage({
           </form>
         </div>
 
-        <p className="text-center text-xs text-gray-400">
-          Create your account in Supabase → Authentication → Users
+        <p className="text-center text-sm text-gray-500">
+          Don&apos;t have an account?{' '}
+          <a href="/signup" className="text-indigo-600 hover:underline font-medium">
+            Sign up
+          </a>
         </p>
       </div>
     </div>
