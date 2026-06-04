@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 
 type SetAllParam = Parameters<NonNullable<CookieMethodsServer['setAll']>>[0]
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request })
 
   const supabase = createServerClient(
