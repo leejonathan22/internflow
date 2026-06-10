@@ -65,3 +65,28 @@ export interface Reminder {
   contacts?: Pick<Contact, 'id' | 'name'>
   applications?: Pick<Application, 'id' | 'company' | 'role'>
 }
+
+export interface CoffeeChatOutput {
+  questions: string[]
+  talking_points: string[]
+  research: string[]
+  follow_up_email: string
+}
+
+export interface InterviewOutput {
+  questions: string[]
+  star_prompts: string[]
+  themes: string[]
+  elevator_pitch: string
+}
+
+export interface PrepSession {
+  id: string
+  user_id: string
+  contact_id: string | null
+  application_id: string | null
+  type: 'coffee_chat' | 'interview'
+  input_json: Record<string, string>
+  output_json: CoffeeChatOutput | InterviewOutput
+  created_at: string
+}

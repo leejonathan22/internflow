@@ -67,6 +67,12 @@ export default async function ContactDetailPage({
         </div>
         <div className="flex gap-2 mt-1">
           <Link
+            href={`/contacts/${id}/prep`}
+            className="border border-indigo-300 bg-indigo-50 text-indigo-700 text-sm font-medium px-4 py-2 rounded-md hover:bg-indigo-100 transition-colors"
+          >
+            Prep
+          </Link>
+          <Link
             href={`/contacts/${id}/edit`}
             className="border border-gray-300 bg-white text-gray-700 text-sm font-medium px-4 py-2 rounded-md hover:bg-gray-50 transition-colors"
           >
